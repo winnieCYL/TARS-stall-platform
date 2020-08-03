@@ -1,7 +1,4 @@
-# rebuild_shop
-# 基础代码
-## test test
+# 地摊交易系统
+# git使用参考
 ---
-这里是同步test
----
-这里是第二次同步test
+下载git，使用VScode的插件可以很方便同步和返回上一次的代码版本，每次修改完之后commit changes，然后点左下角的同步按钮即可
