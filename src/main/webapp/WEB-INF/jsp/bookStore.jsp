@@ -4,8 +4,54 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>书籍·良品</title>
+    <title>地摊详情页</title>
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/book.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <style type="text/css">
+        html,body{
+            width:100%;
+            height:100%;
+        }
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        body {
+            font: 12px/16px Verdana, Helvetica, Arial, sans-serif;
+        }
+        #map{
+            left:10%;
+            width:300px;
+            height:40%;
+            word-wrap: break-word;
+            min-width:30%;
+            min-height:300px;
+            display: inline-block;
+        }
+        #description{
+            display: inline-block;
+            position: relative;
+            width: 300px;
+            height: 40%;
+            border-bottom: 3px solid green;
+        }
+
+        #div1{
+            width:50%;
+            height:300px;
+            background:blue;
+            float:left;
+        }
+        #div2{
+            width:50%;
+            height:300px;
+            background:green;
+            float:left;
+        }
+    </style>
+    <script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=ZIABZ-2RI3D-EF54E-HHWCC-TAWQF-KVBRJ"></script>
+
 </head>
 <body>
 <!-- 导航 -->
@@ -30,17 +76,21 @@
             <li><a href="/home.do">首页</a></li>
             <li><a class="active" href="/goBookStore.do">书籍良品</a></li>
             <li><a href="/goAskBookStore.do">求书区</a></li>
-            <li><a href="#">服务区</a></li>
+            <li><a href="#">这是地摊详情页</a></li>
         </ul>
     </nav>
-    <div class="bookstore-pic"></div>
+    <%--    <div class="bookstore-pic"></div>--%>
+
 </header>
 <!-- 图书分类 -->
+
+
 <div id="container">
+
     <div id="book-menu">
         <ul class="book-class">
             <c:forEach items="${categories}" var="category">
-            <li><a href="goBookStore.do?id=${category.key}">${category.value}</a></li>
+                <li><a href="goBookStore.do?id=${category.key}">${category.value}</a></li>
             </c:forEach>
         </ul>
     </div>
@@ -48,22 +98,45 @@
         查 看 菜 单
         <div id="toggle-btn"></div>
     </div>
+    <div id="map"></div>
+<%--    <div id="description">--%>
+<%--        <span class="book-name">${book.getName()}</span>--%>
+<%--        <span class="book-publish">${book.getAuthor()} 著 / ${book.getPress()} / ${book.getPublishDate()} / ${book.getVersion()}</span>--%>
+<%--        <span class="book-price">--%>
+<%--				<p>售价 <a class="final-price">￥${book.getPrice()}</a></p>--%>
+<%--				<p>定价 <a class="original-price">￥${book.getOriginalPrice()} </a></p>--%>
+<%--				<p>品相 <a class="condition">${book.getDegree()}新</a></p>--%>
+<%--			</span>--%>
+<%--        <span class="book-descr">--%>
+<%--				<p>商品描述<a class="book-desc">${book.getDescription()}</a></p>--%>
+<%--				<p>上书时间<a class="upload-time">2018-03-20</a></p>--%>
+<%--			</span>--%>
+<%--    </div>--%>
+    <div id = div1></div>
+    <div id = div2></div>
+    <script type="text/javascript">
+        var map = new qq.maps.Map(document.getElementById("map"), {
+            // 地图的中心地理坐标。
+            center: new qq.maps.LatLng(31.2836614,121.5000599),
+            zoom: 15
+        });
+    </script>
     <div id="book-container">
         <h3 class="book-title"><a href="#">| ${categoryName}</a></h3>
         <ul class="book-lists">
             <c:forEach items="${books}" var="book" varStatus="bookStatus">
-            <li class="book-list">
-                <a href="bookDetail.do?id=${book.getId()}" class="book-pic" target="_blank">
-                    <img src="<%=request.getContextPath()%>/img/book-list/article/${book.getBookImage().getId()}.jpg">
-                </a>
-                <a href="#" class="book-info">
-                    <h5 class="book-name">${book.getName()}</h5>
-                    <span class="book-detail">${book.getDescription()}</span>
-                </a>
-                <span class="book-price">￥${book.getPrice()}
+                <li class="book-list">
+                    <a href="bookDetail.do?id=${book.getId()}" class="book-pic" target="_blank">
+                        <img src="<%=request.getContextPath()%>/img/book-list/article/${book.getBookImage().getId()}.jpg">
+                    </a>
+                    <a href="#" class="book-info">
+                        <h5 class="book-name">${book.getName()}</h5>
+                        <span class="book-detail">${book.getDescription()}</span>
+                    </a>
+                    <span class="book-price">￥${book.getPrice()}
 						<a href="#" class="book-buy">立即下单</a>
                 </span>
-            </li>
+                </li>
             </c:forEach>
 
         </ul><!--  book-list end -->
@@ -76,7 +149,7 @@
     </span>
 </div><!-- container end-->
 <footer>
-    <a href="#">©2018-2019 二手书交易</a>
+    <a href="#">©2020 二手书交易</a>
     <a href="#">意见反馈&nbsp;&nbsp;&nbsp;联系我们&nbsp;&nbsp;&nbsp;隐私权声明&nbsp;&nbsp;&nbsp;使用条款</a>
 </footer>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.2.js"></script>
