@@ -30,25 +30,15 @@
             display: inline-block;
         }
         #description{
+            left: 50%;
             display: inline-block;
-            position: relative;
+            position: absolute;
             width: 300px;
             height: 40%;
-            border-bottom: 3px solid green;
+            border-style:groove;
+            /*border-bottom: 3px solid green;*/
         }
 
-        #div1{
-            width:50%;
-            height:300px;
-            background:blue;
-            float:left;
-        }
-        #div2{
-            width:50%;
-            height:300px;
-            background:green;
-            float:left;
-        }
     </style>
     <script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=ZIABZ-2RI3D-EF54E-HHWCC-TAWQF-KVBRJ"></script>
 
@@ -59,7 +49,7 @@
     <nav class="navbar">
         <div class="nav-info">
             <a href="#" class="username">${user.getName()}</a>
-            <a href="/myBookshelf.do" class="bookshelf">||&nbsp;&nbsp;&nbsp;我的书架</a>
+            <a href="/myBookshelf.do" class="bookshelf">||&nbsp;&nbsp;&nbsp;我的地摊</a>
             <a href="#" class="logout">[ 退 出 ]</a>
         </div> <!-- nav-info -->
         <form action="searchBook.do" method="post">
@@ -74,16 +64,29 @@
         </form>
         <ul class="menu">
             <li><a href="/home.do">首页</a></li>
-            <li><a class="active" href="/goBookStore.do">书籍良品</a></li>
-            <li><a href="/goAskBookStore.do">求书区</a></li>
-            <li><a href="#">这是地摊详情页</a></li>
+            <li><a class="active" href="/goBookStore.do">地摊详情</a></li>
+            <li><a href="/goAskBookStore.do">求购区</a></li>
         </ul>
     </nav>
     <%--    <div class="bookstore-pic"></div>--%>
 
 </header>
-<!-- 图书分类 -->
-
+<!-- 地摊商品页面 -->
+<div id="map"></div>
+<div id="description">
+    <%--这部分是地摊信息的展示--%>
+    <span class="book-name">${book.getName()}</span>
+    <span class="book-publish">${book.getAuthor()} 著 / ${book.getPress()} / ${book.getPublishDate()} / ${book.getVersion()}</span>
+    <span class="book-price">
+				<p>售价 <a class="final-price">￥${book.getPrice()}</a></p>
+<%--				<p>定价 <a class="original-price">￥${book.getOriginalPrice()} </a></p>--%>
+<%--				<p>品相 <a class="condition">${book.getDegree()}新</a></p>--%>
+			</span>
+    <span class="book-descr">
+				<p>这一大块是地摊信息展示<a class="book-desc">${book.getDescription()}</a></p>
+				<p>更新时间<a class="upload-time">2018-03-20</a></p>
+			</span>
+</div>
 
 <div id="container">
 
@@ -94,26 +97,10 @@
             </c:forEach>
         </ul>
     </div>
-    <div id="book-menu-toggle">
-        查 看 菜 单
-        <div id="toggle-btn"></div>
-    </div>
-    <div id="map"></div>
-<%--    <div id="description">--%>
-<%--        <span class="book-name">${book.getName()}</span>--%>
-<%--        <span class="book-publish">${book.getAuthor()} 著 / ${book.getPress()} / ${book.getPublishDate()} / ${book.getVersion()}</span>--%>
-<%--        <span class="book-price">--%>
-<%--				<p>售价 <a class="final-price">￥${book.getPrice()}</a></p>--%>
-<%--				<p>定价 <a class="original-price">￥${book.getOriginalPrice()} </a></p>--%>
-<%--				<p>品相 <a class="condition">${book.getDegree()}新</a></p>--%>
-<%--			</span>--%>
-<%--        <span class="book-descr">--%>
-<%--				<p>商品描述<a class="book-desc">${book.getDescription()}</a></p>--%>
-<%--				<p>上书时间<a class="upload-time">2018-03-20</a></p>--%>
-<%--			</span>--%>
+<%--    <div id="book-menu-toggle">--%>
+<%--        查 看 菜 单--%>
+<%--        <div id="toggle-btn"></div>--%>
 <%--    </div>--%>
-    <div id = div1></div>
-    <div id = div2></div>
     <script type="text/javascript">
         var map = new qq.maps.Map(document.getElementById("map"), {
             // 地图的中心地理坐标。
