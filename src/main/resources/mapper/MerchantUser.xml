@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.daniel.dao.MerchantUserDAO">
+
+    <select id="get" parameterType="_int" resultType="MerchantUser">
+        select * from merchantuser where id= #{id}
+    </select>
+
+    <update id="update" parameterType="MerchantUser" >
+        update merchantuser set name=#{name} where id=#{id}
+    </update>
+
+    <select id="getByUserName" resultType="MerchantUser">
+        select * from merchantuser where username= #{username}
+    </select>
+
+    <select id="checkPassword" parameterType="MerchantUser" resultType="int">
+        select count(*) from merchantuser where username = #{username} and password = #{password}
+    </select>
+</mapper>

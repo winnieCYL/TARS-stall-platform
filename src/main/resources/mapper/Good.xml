@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.daniel.dao.GoodDAO">
+    <resultMap id="goodResultMap" type="Good">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="price" property="price" />
+        <result column="description" property="description" />
+        <association property="shop" javaType="Shop">
+            <id column="sid" property="id" />
+        </association>
+    </resultMap>
+
+    <select id="getShopId" resultType="_int">
+        select sid from good where id = #{id}
+    </select>
+
+    <select id="get" parameterType="_int" resultMap="goodResultMap">
+        select * from  good  where id= #{id}
+    </select>
+    
+    <insert id="add" useGeneratedKeys="true" keyProperty="id" parameterType="Good" >
+        insert into shop
+        ( name,price,description,sid )
+        values
+        (#{name},#{price},#{description},#{shop.id})
+    </insert>
+
+    <update id="update" parameterType="Good" >
+        update shop set name=#{name},price=#{price},description=#{description},sid=#{shop.id} where id=#{id}
+    </update>
+
+    <select id="count" resultType="_int">
+        select count(id) from good where sid=#{sid}
+    </select>
+
+    <delete id="delete" parameterType="_int" >
+        delete from good where id= #{id}
+    </delete>
+
+
+    <select id="list" resultType="Good">
+        select * from  good
+    </select>
+
+    <select id="getListByShopId" resultType="Good">
+        select * from good where sid = #{sid}
+    </select>
+
+</mapper>
