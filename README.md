@@ -1,75 +1,22 @@
 
-![lYzB5Q.png](https://s2.ax1x.com/2020/01/02/lYzB5Q.png)
+=======
+# TARS-stall-platform
+TARS开源项目，地摊交易平台
+Create by: 朴实无华YCC
 
+## 简介
+>>>>>>> 62a487b57162a0f87799c5067677dd951821e269
+>
+#初版
+from mj: 目前后端增加了shop的组件，因为和user合并，所以对商品的查询可以通过用户id实现\
+能正常跑通，但是还没有任何区别，因为只是加了后端逻辑没一点调用
 
-# second-hand-bbs
+数据库方面主要的构思是\
+user表:id, username, password(加密), shopname, lon, lat以及其他联系信息\
+product表:id, title(名字), content(描述), price\
+具体的话参照domain文件夹下的类设计即可，大部分和数据库有映射的；导入mysql的sql文件后查看各个表也能有很直接的帮助，基本上就是原user表加了3列——shopname, lon, lat\
+【注:sql文件不是我写的，还没更新】\
 
-本项目是一个基于spring boot和spring data jpa的校园二手交易论坛,前端页面主要使用bootstrap4来完成,部分样式参考了一个西班牙购物网站.
-
-
-
-## 更新
-
-- 新增thymeleaf模板,增加复用
-- 新增spring security权限管理
-- 重构部分代码
-- 更新新的角色管理
-- 在管理员页面增加数据可视化组件
-
-
-
-
-
-## 技术栈
-- spring boot
-- spring data jpa
-- mysql
-- spring security
-- thymeleaf
-- bootstrap4
-
-## 功能介绍
-- 分为用户和管理员两大部分,管理员能够管理大部分信息
-- 购买链接通过添加微信,添加qq来实现
-- 能够对产品进行留言
-- 能够对个人的闲置物品和个人信息进行修改删除
-
-## 快速运行
-1. 克隆本项目到本地
-
-    ` git clone git@github.com:504250439/second-hand-bbs.git `
-
-2. 先在mysql中新建一个 spring 数据库,然后导入本项目中mysql文件夹下的三个sql文件.
-
-3. 根据自己本地情况修改数据库配置，数据库配置在SpringBoot项目的application.properties中
-
-4. 在IntelliJ IDEA中运行项目
-
-**OK，至此，服务端就启动成功了，此时我们直接在地址栏输入**
-
-> **http://localhost:8080/index**
-
-**http://localhost:8080/admin/login** 进入后台管理员页面
-
-**即可访问我们的项目.**
-
-## 注意事项
-1. 如果导入后只显示项目中的文件，不显示项目结构.可参考[此文章](https://blog.csdn.net/junge1545/article/details/94400741)来解决
-2. 产品图片保存在本地的 E盘second-hand-bbs文件夹当中,可在application.properties中修改图片文件保存位置.
-
-
-## 部分界面截图
-![主界面](https://s2.ax1x.com/2020/01/02/ltCrwV.md.png)
-
-![商品详情页面](https://s2.ax1x.com/2020/01/02/ltCWl9.md.png)
-
-![个人的管理页面](https://s2.ax1x.com/2020/01/02/ltCLSH.md.png)
-
-
-
-## todo
-- 增加redis保存session
-- 整理项目(删除多余部分)
-- 同类推荐功能
-
-## 最后,希望朋友们顺手点个star,谢谢啦.
+ToDo: 数据库字段更新，前后端连接, web的debug\
+这边的话shop下的更新页需要尽快出来和后端对接试试，考虑到效率问题我应该直接冲这几个html了，然后尝试链接\
+我这边界面上基本上会按照他这个来，如果你们后续有页面更新的话到时再合并就可以
