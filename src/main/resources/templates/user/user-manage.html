@@ -215,7 +215,7 @@
                                             <input type="password"
                                                    class="form-control form-control-line"
                                                    th:filed="*{password}"
-                                                   th:placeholder="${user.password}">
+                                                   th:placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -234,6 +234,33 @@
                                                    class="form-control form-control-line"
                                                    th:filed="*{wechat}"
                                                    th:placeholder="${user.wechat}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">商店名</label>
+                                        <div class="col-md-12">
+                                            <input type="text"
+                                                   class="form-control form-control-line"
+                                                   th:filed="*{shopname}"
+                                                   th:placeholder="${user.shopname}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">经度</label>
+                                        <div class="col-md-12">
+                                            <input type="text"
+                                                   class="form-control form-control-line"
+                                                   th:filed="*{lon}"
+                                                   th:placeholder="${user.lon}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">纬度</label>
+                                        <div class="col-md-12">
+                                            <input type="text"
+                                                   class="form-control form-control-line"
+                                                   th:filed="*{lat}"
+                                                   th:placeholder="${user.lat}">
                                         </div>
                                     </div>
                                     <div class="form-group">

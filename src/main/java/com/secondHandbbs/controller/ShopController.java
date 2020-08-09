@@ -55,7 +55,7 @@ public class ShopController {
                                 HttpSession session) throws IllegalStateException{
 //        保存上传信息
         userService.saveUser(user);
-        return "redirect:/shop/shop";
+        return "shop/shop";
     }
 
     /**

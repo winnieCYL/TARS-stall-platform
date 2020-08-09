@@ -110,6 +110,7 @@ public class ProductController {
                                 @PageableDefault(size = 8, sort = {"createTime"}, direction = Sort.Direction.DESC) Pageable pageable)
             throws IllegalStateException, IOException{
         try{
+
             productService.saveProduct(product,files,session);
         }catch (Exception e){
             log.error(e.toString());
