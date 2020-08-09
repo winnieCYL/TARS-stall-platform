@@ -1,6 +1,6 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
-
+<!--产品页，对应的是我们地摊的商品页面，要添加连接到所属商店的页面-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -113,7 +113,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-7 col-12">
                         <div class="header-logo">
-                            <a href="index.html">
+                            <a th:href="@{/index}">
                                 <img src="/imgs/logo2.png" alt="logo">
                             </a>
                         </div>
