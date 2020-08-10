@@ -10,6 +10,8 @@ import com.secondHandbbs.util.FileUtils;
 import com.secondHandbbs.util.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -178,4 +180,8 @@ public class UserService implements UserDetailsService {
         return u;
     }
 
+    //分页获取所有商店(通过用户id)
+    public Page<User> listUser(Pageable pageable) {
+        return userRepository.findAll(pageable);
+    }
 }
