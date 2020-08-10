@@ -1,6 +1,7 @@
 package com.secondHandbbs.controller;
 
 import com.secondHandbbs.domain.User;
+import com.secondHandbbs.service.ProductService;
 import com.secondHandbbs.service.UserService;
 import com.secondHandbbs.util.SecurityUtils;
 import org.slf4j.Logger;
@@ -26,6 +27,9 @@ public class ShopController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private ProductService productService;
 
     @Value("${web.upload-path}")
     private String path;
@@ -91,17 +95,21 @@ public class ShopController {
 
     //获取商店详细信息
     @RequestMapping("/shop")
-    public String shop( Model model) {
+    public String shop( Model model, @PageableDefault(size = 16, sort = {"createTime"},
+            direction = Sort.Direction.DESC) Pageable pageable) {
         User u=SecurityUtils.getUser();
 
 //        计算商品图片便于处理
         int imglength;
-        if(u.getImgs()==null)
-            imglength=0;
-        else
+        if(u.getImgs()==null) {
+            imglength = 0;
+        }else{
             imglength=u.getImgs().size();
+        }
+
         model.addAttribute("user", SecurityUtils.getUser());
         model.addAttribute("imglength",imglength);
+        model.addAttribute("page",productService.listProduct(pageable));
 
         return "shop/shop";
     }

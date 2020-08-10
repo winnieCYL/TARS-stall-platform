@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>产品详情</title>
+    <title>商店详情</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="/css/custom.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-
+    <!--移植了二手书的CSS-->
+    <link rel="stylesheet" type="text/css" href="/css/book.css">
 </head>
 <body>
 <!-- Wrapper -->
@@ -242,7 +243,77 @@
         </div>
         <!--// Product Page Wrapper -->
 
+<!--        地摊的商品详情
+        <div id="book-container">
+            <h3 class="book-title"><a href="#">| 所有商品</a></h3>
+            <ul class="book-lists">
+                <c:forEach items="${books}" var="book" varStatus="bookStatus">
+                    <li class="book-list">
+                        <a href="bookDetail.do?id=${book.getId()}" class="book-pic" target="_blank">
+                            <img src="<%=request.getContextPath()%>/img/book-list/article/${book.getBookImage().getId()}.jpg">
+                        </a>
+                        <a href="#" class="book-info">
+                            <h5 class="book-name">${book.getName()}</h5>
+                            <span class="book-detail">${book.getDescription()}</span>
+                        </a>
+                        <span class="book-price">￥${book.getPrice()}
+						<a href="#" class="book-buy">立即下单</a>
+                </span>
+                    </li>
+                </c:forEach>
 
+            </ul>  product list end
+        </div>  地摊商品详情 end-->
+        <div class="shop-area bg-white section-padding-bottom-md">
+            <div class="container">
+                <h2><span class="badge badge-warning"  th:text="${type}"></span></h2>
+                <!-- Shop Page Products -->
+                <div class="row justify-content-center shop-page-products products-wrapper">
+                    <!-- Single Product -->
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12"
+                         th:each="product : ${page}">
+                        <div class="product-item">
+                            <div class="product-item-images">
+                                <p class="product-item-image-inner">
+                                    <img th:if="${product.imgs.size()>0}"
+                                         th:src="${product.imgs.get(0)}">
+                                    <!--<img src="/asdfasdf/闲置交易.png">-->
+                                </p>
+                                <p class="add-to-cart-button">
+                                    <a href="#" th:href="@{/product/{id}(id=${product.id})}"><span>进去看看
+                                </span></a>
+                                </p>
+                            </div>
+                            <div class="product-item-content">
+                                <div class="product-item-content-left">
+                                    <h5><a href="product-details-right-sidebar.html"
+                                           th:text="${product.title}"></a></h5>
+                                    <div class="price-box">
+                                        <span class="pricebox-price"
+                                              th:text="${product.price}"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--<div class="shop-page-toolbars shop-page-toolbars-bottom" th:if="${page.totalPages}>1">-->
+                <div class="shop-page-toolbars shop-page-toolbars-bottom" th:if="${page.totalPages}!=null">
+                    <ul class="shop-toolbar-pagination" th:if="${page.totalPages}>1">
+                        <li class="active"><a href="#" th:href="@{index(page=${page.number}-1)}"
+                                              th:unless="${page.first}">上一页</a></li>
+                        <li><a href="#" th:href="@{index(page=${page.number}+1)}"
+                               th:unless="${page.last}">下一页</a></li>
+                    </ul>
+
+                </div>
+                <!--// Shop Page Toolbars -->
+
+            </div>
+        </div>
     </main>
     <!--// Page Conttent -->
 
