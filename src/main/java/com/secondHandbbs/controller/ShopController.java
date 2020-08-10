@@ -93,21 +93,40 @@ public class ShopController {
     }
 
 
-    //获取商店详细信息
+    //获取用户自己商店详细信息
     @RequestMapping("/shop")
     public String shop( Model model,@PageableDefault(size = 16, sort = {"createTime"},
             direction = Sort.Direction.DESC) Pageable pageable) {
         User u=SecurityUtils.getUser();
 
 //        计算商品图片便于处理
+        int imglen;
+        if(u.getImgs()==null)
+            imglen=0;
+        else
+            imglen=u.getImgs().size();
+        model.addAttribute("user", SecurityUtils.getUser());
+        model.addAttribute("imglength",imglen);
+        model.addAttribute("page",productService.listProduct(SecurityUtils.getUser().getId(),pageable));
+
+        return "shop/shop";
+    }
+
+    //获取某个商店详细信息
+    @RequestMapping("/shop/{id}")
+    public String shopId(@PathVariable Long id, Model model,@PageableDefault(size = 16, sort = {"createTime"},
+            direction = Sort.Direction.DESC) Pageable pageable) {
+
+        User u = userService.getAndConvert(id);
+//        计算商品图片便于处理
         int imglength;
         if(u.getImgs()==null)
             imglength=0;
         else
             imglength=u.getImgs().size();
-        model.addAttribute("user", SecurityUtils.getUser());
+        model.addAttribute("user", u);
         model.addAttribute("imglength",imglength);
-        model.addAttribute("page",productService.listProduct(SecurityUtils.getUser().getId(),pageable));
+        model.addAttribute("page",productService.listProduct(id,pageable));
 
         return "shop/shop";
     }
