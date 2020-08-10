@@ -35,7 +35,6 @@ public class ShopController {
 
     @RequestMapping("/shop-input")
     public String shopInput(Model model,HttpSession session) {
-        //model.addAttribute("product", new Product());
         model.addAttribute("user", SecurityUtils.getUser());
         return "shop/shop-input";
     }
@@ -44,18 +43,29 @@ public class ShopController {
     @RequestMapping("/shop/update")
     public String shopUpdate(Model model,HttpSession session) {
         model.addAttribute("user", SecurityUtils.getUser());
-//        model.addAttribute("page",productService.listProduct(user.getId(),pageable));
         return "shop/shop-update";
 
     }
 
     //    修改商店信息操作 等价于覆盖user信息 所以saveUser
     @RequestMapping(value = "/shop/update", method = RequestMethod.POST)
-    public String updateShop(User user, Model model,
-                                HttpSession session) throws IllegalStateException{
-//        保存上传信息
-        userService.saveUser(user);
-        return "shop/shop";
+    public String updateShop(User user,
+                             @RequestParam("files") MultipartFile[] files,
+                             Model model, HttpSession session,
+                             @PageableDefault(size = 8, sort = {"createTime"}, direction = Sort.Direction.DESC) Pageable pageable)
+            throws IllegalStateException, IOException{
+        try{
+            User currentuser = SecurityUtils.getUser();
+            currentuser.setShopname(user.getShopname());
+            currentuser.setLon(user.getLon());
+            currentuser.setLon(user.getLon());
+            userService.saveUser(currentuser,files,session);
+            log.info("更新商店信息成功");
+        }catch (Exception e){
+            log.error(e.toString());
+            log.info("更新失败");
+        }
+        return "redirect:/shop";
     }
 
     /**
@@ -70,12 +80,12 @@ public class ShopController {
                                 @PageableDefault(size = 8, sort = {"createTime"}, direction = Sort.Direction.DESC) Pageable pageable)
             throws IllegalStateException, IOException{
         try{
-            userService.saveShop(user,files,session);
+            userService.saveUser(user,files,session);
         }catch (Exception e){
             log.error(e.toString());
         }
         log.info("保存商店信息成功");
-        return "shop/shop"; //返回商店详情页
+        return "redirect:/shop"; //返回商店详情页
     }
 
 
@@ -85,7 +95,11 @@ public class ShopController {
         User u=SecurityUtils.getUser();
 
 //        计算商品图片便于处理
-        int imglength=u.getImgs().size();
+        int imglength;
+        if(u.getImgs()==null)
+            imglength=0;
+        else
+            imglength=u.getImgs().size();
         model.addAttribute("user", SecurityUtils.getUser());
         model.addAttribute("imglength",imglength);
 

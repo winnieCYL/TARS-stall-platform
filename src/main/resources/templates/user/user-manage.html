@@ -184,7 +184,7 @@
                             <div class="card-block">
                                 <form class="form-horizontal form-material" novalidate=""
                                       method="post"
-                                      th:action="@{updateUser}" th:objict="${user}">
+                                      th:action="@{updateUser}" th:object="${user}">
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <input type="hidden" placeholder="Johnathan Doe"
@@ -215,7 +215,7 @@
                                             <input type="password"
                                                    class="form-control form-control-line"
                                                    th:filed="*{password}"
-                                                   th:placeholder="">
+                                                   th:placeholder="你的密码">
                                         </div>
                                     </div>
                                     <div class="form-group">

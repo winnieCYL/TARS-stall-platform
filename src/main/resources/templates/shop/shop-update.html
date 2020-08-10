@@ -2,14 +2,14 @@
 
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="icon" href="http://code.z01.com/favicon.ico">
-<title>发布闲置</title>
-<!-- Bootstrap 核心CSS -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="http://code.z01.com/favicon.ico">
+	<title>发布闲置</title>
+	<!-- Bootstrap 核心CSS -->
 
 
 	<!-- Style Css -->
@@ -17,16 +17,16 @@
 	<!-- Custom Styles -->
 	<link rel="stylesheet" href="/css/custom.css">
 
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/plugins.css">
-    <script src="/js/jquery-3.4.1.slim.min.js"></script>
-    <script src="/js/popper.min.js"></script>
-    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/plugins.css">
+	<script src="/js/jquery-3.4.1.slim.min.js"></script>
+	<script src="/js/popper.min.js"></script>
+	<script src="/js/bootstrap.min.js" type="application/javascript"></script>
 
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light ">
-	<a class="navbar-brand" th:href="/index">佛大叮当</a>
+	<a class="navbar-brand" th:href="@{/index}">佛大叮当</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
@@ -34,7 +34,7 @@
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item active">
-				<a class="nav-link" th:href="/index">首页
+				<a class="nav-link" th:href="@{/index}">首页
 					<span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item dropdown"   th:if="${user!=null}">
@@ -42,11 +42,13 @@
 				   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  th:text="${user.getUsername()}">
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" th:href="@{product-manage}">我的闲置</a>
-					<a class="dropdown-item" th:href="@{announce-manage}">我的留言</a>
-					<a class="dropdown-item" th:href="@{comment-manage}">公告</a>
+					<a class="dropdown-item" th:href="@{/user/product-manage}">我的闲置</a>
+					<a class="dropdown-item" th:href="@{/user/user-manage}">我的信息</a>
+					<a class="dropdown-item" th:href="@{/shop}">我的商店</a>
+					<a class="dropdown-item" th:href="@{/shop/update}">修改商店信息</a>
+					<a class="dropdown-item" th:href="@{/user/comment-manage}">我的留言</a>
+					<a class="dropdown-item" th:href="@{/user/announce-manage}">公告</a>
 					<a class="dropdown-item" th:href="@{logout}">退出</a>
-
 				</div>
 			</li>
 			<li class="nav-item active " th:if="${user==null}">
@@ -67,78 +69,109 @@
 </nav>
 <div class="container">
 
-  <div class="row ">
+	<div class="row ">
 
-	<div class="col-md-8 order-md-1">
-	  <form class="needs-validation" novalidate="" method="post" th:action="@{updateShop}"
-			th:object="${user}"
-			enctype="multipart/form-data">
+		<div class="col-md-8 order-md-1">
+			<form class="needs-validation" novalidate="" method="post" th:action="@{/shop/update}"
+				  th:object="${user}"
+				  enctype="multipart/form-data">
 
-		  <div class="mb-3">
-			  <label for="shopname">商店名</label>
-			  <input type="text" class="form-control" id="shopname" th:field="*{shopname}"
-					 placeholder="能一眼看出摊位主要出售什么"
-					 value="" required="">
-			  <div class="invalid-feedback">
-				  店名不能为空.
-			  </div>
-		  </div>
+				<div class="mb-3">
+					<label for="id">用户ID</label>
+					<input type="number" class="form-control hide" id="id" readonly="readonly" th:field="*{id}"
+						   placeholder="" required="">
+				</div>
 
-		  <div class="mb-3">
-			  <label for="lon">经度</label>
-			  <input type="number" class="form-control" id="lon" th:field="*{lon}"
-					 placeholder="建议校区附近" required="">
-		  </div>
+				<div class="mb-3">
+					<label for="shopname">商店名</label>
+					<input type="text" class="form-control" id="shopname" th:field="*{shopname}"
+						   placeholder="能一眼看出摊位主要出售什么"
+						   value="" required="">
+					<div class="invalid-feedback">
+						店名不能为空.
+					</div>
+				</div>
 
-		  <div class="mb-3">
-			  <label for="lat">纬度</label>
-			  <input type="number" class="form-control" id="lat" th:field="*{lat}"
-					 placeholder="建议校区附近" required="">
-		  </div>
-		
-		<hr class="mb-4">
-		<button class="btn btn-primary btn-lg btn-block" type="submit">发   布</button>
-	  </form>
+				<div class="mb-3">
+					<label for="lon">经度</label>
+					<input type="number" class="form-control" id="lon" step="0.0000000000001" th:field="*{lon}"
+						   placeholder="建议校区附近" required="">
+				</div>
+
+				<div class="mb-3">
+					<label for="lat">纬度</label>
+					<input type="number" class="form-control" id="lat" step="0.0000000000001" th:field="*{lat}"
+						   placeholder="建议校区附近" required="">
+				</div>
+
+				<div class="input-group mb-3">
+					<div class="custom-file">
+						<input type="file" class="custom-file-input" id="validatedCustomFile1" name="files"
+							   multiple="multiple" required="">
+						<label class="custom-file-label" for="validatedCustomFile1" id="valFile1">选择商店图片
+						</label>
+					</div>
+				</div>
+				<div class="input-group mb-3">
+					<div class="custom-file">
+						<input type="file" class="custom-file-input" id="validatedCustomFile2" name="files"
+							   multiple="multiple">
+						<label class="custom-file-label" for="validatedCustomFile2" id="valFile2">
+							选择商店图片</label>
+					</div>
+				</div>
+				<div class="input-group mb-3">
+					<div class="custom-file">
+						<input type="file" class="custom-file-input" id="validatedCustomFile3" name="files"
+							   multiple="multiple">
+						<label class="custom-file-label" for="validatedCustomFile3" id="valFile3">
+							选择商店图片</label>
+					</div>
+				</div>
+
+				<hr class="mb-4">
+				<button class="btn btn-primary btn-lg btn-block" type="submit">发   布</button>
+			</form>
+		</div>
 	</div>
-  </div>
-  <footer class="my-5 pt-5 text-muted text-center text-small">
-	<p class="mb-1">© YCC </p>
-  </footer>
+	<footer class="my-5 pt-5 text-muted text-center text-small">
+		<p class="mb-1">© YCC </p>
+	</footer>
 </div>
 
 <script>
-      (function() {
-        'use strict';
-        window.addEventListener('load', function() {
-          var forms = document.getElementsByClassName('needs-validation');
-          var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-              if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-              form.classList.add('was-validated');
-            }, false);
-          });
-        }, false);
-      })();
+	(function() {
+		'use strict';
+		window.addEventListener('load', function() {
+			var forms = document.getElementsByClassName('needs-validation');
+			var validation = Array.prototype.filter.call(forms, function(form) {
+				form.addEventListener('submit', function(event) {
+					if (form.checkValidity() === false) {
+						event.preventDefault();
+						event.stopPropagation();
+					}
+					form.classList.add('was-validated');
+				}, false);
+			});
+		}, false);
+	})();
 
-	  $('#validatedCustomFile1').change(function (e) {
-		  var fileName = e.currentTarget.files[0].name;
-		  console.log(fileName);//js-dom.png
-		  $("#valFile1").text(fileName)
-	  })
-	  $('#validatedCustomFile2').change(function (e) {
-		  var fileName = e.currentTarget.files[0].name;
-		  console.log(fileName);//js-dom.png
-		  $("#valFile2").text(fileName)
-	  })
-	  $('#validatedCustomFile3').change(function (e) {
-		  var fileName = e.currentTarget.files[0].name;
-		  console.log(fileName);//js-dom.png
-		  $("#valFile3").text(fileName)
-	  })
+	$('#validatedCustomFile1').change(function (e) {
+		var fileName = e.currentTarget.files[0].name;
+		console.log(fileName);//js-dom.png
+		$("#valFile1").text(fileName)
+	})
+	$('#validatedCustomFile2').change(function (e) {
+		var fileName = e.currentTarget.files[0].name;
+		console.log(fileName);//js-dom.png
+		$("#valFile2").text(fileName)
+	})
+	$('#validatedCustomFile3').change(function (e) {
+		var fileName = e.currentTarget.files[0].name;
+		console.log(fileName);//js-dom.png
+		$("#valFile3").text(fileName)
+	})
 
-    </script>
+</script>
 
 <!----></body></html>

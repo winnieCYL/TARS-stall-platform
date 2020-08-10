@@ -40,14 +40,13 @@ public class User implements UserDetails {
     private boolean credentialsNonExpired;
     private boolean enabled;
 
+    @ElementCollection
+    private List<String> imgs;
+
     /*增加商店*/
     private String shopname;
     private double lon;
     private double lat;
-
-    @ElementCollection
-    private List<String> imgs;
-
     private String email;
     private String phone;
     private String wechat;

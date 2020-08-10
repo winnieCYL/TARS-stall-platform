@@ -3,7 +3,6 @@ package com.secondHandbbs.service;
 
 import com.secondHandbbs.dao.RoleRepository;
 import com.secondHandbbs.dao.UserRepository;
-import com.secondHandbbs.domain.Product;
 import com.secondHandbbs.domain.Role;
 import com.secondHandbbs.domain.User;
 import com.secondHandbbs.util.FileUtils;
@@ -128,7 +127,7 @@ public class UserService implements UserDetailsService {
     /**
      *  保存商店信息
      */
-    public boolean saveShop(User user, MultipartFile[] files, HttpSession session)
+    public boolean saveUser(User user, MultipartFile[] files, HttpSession session)
             throws IllegalStateException, IOException {
         List<String> imgs=saveImgs(user,files);
         user.setImgs(imgs);
@@ -146,13 +145,13 @@ public class UserService implements UserDetailsService {
         List<String> imgs= new ArrayList();
         if (null != files && files.length > 0) {
 //            文件夹完整的路径
-//            类似于 "E://log/secondhand-bbs/productImgs/1/二手洗面奶
+//            类似于 "E://log/secondhand-bbs/shopsImgs/1/二手洗面奶
             String completePath=path+ File.separator
                     + "shopsImgs"+File.separator
                     + user.getId()+ File.separator
                     +user.getShopname();
 //            存入数据库是的路径
-//            类似于 "productImgs/1/二手洗面奶
+//            类似于 "shopImgs/1/二手洗面奶
             String dataPath="shopsImgs"+File.separator
                     +user.getId()+ File.separator
                     +user.getShopname();
