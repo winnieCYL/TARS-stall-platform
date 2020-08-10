@@ -3,16 +3,20 @@ package com.secondHandbbs.service;
 
 import com.secondHandbbs.dao.RoleRepository;
 import com.secondHandbbs.dao.UserRepository;
+import com.secondHandbbs.domain.Product;
 import com.secondHandbbs.domain.Role;
 import com.secondHandbbs.domain.User;
 import com.secondHandbbs.util.FileUtils;
 import com.secondHandbbs.util.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
@@ -169,4 +173,15 @@ public class UserService implements UserDetailsService {
         return imgs;
     }
 
+    //    获取单个用户，用作商店信息
+    @Transactional
+    public User getAndConvert(Long id) {
+        User u = userRepository.getOne(id);
+        return u;
+    }
+
+    //分页获取所有商店(通过用户id)
+    public Page<User> listUser(Pageable pageable) {
+        return userRepository.findAll(pageable);
+    }
 }
