@@ -1,6 +1,6 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
-
+<!--产品页，对应的是我们地摊的商品页面，要添加连接到所属商店的页面-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -49,56 +49,7 @@
 
     <!-- Header -->
     <header class="header sticky-header">
-<!--        <nav class="navbar navbar-expand-lg navbar-light ">-->
-<!--            <a class="navbar-brand" th:href="@{/index}">佛大叮当</a>-->
-<!--            <button class="navbar-toggler" type="button" data-toggle="collapse"-->
-<!--                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"-->
-<!--                    aria-expanded="false" aria-label="Toggle navigation">-->
-<!--                <span class="navbar-toggler-icon"></span>-->
-<!--            </button>-->
-
-<!--            <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
-<!--                <ul class="navbar-nav mr-auto">-->
-<!--                    <li class="nav-item active">-->
-<!--                        <a class="nav-link" th:href="index">首页-->
-<!--                            <span class="sr-only">(current)</span></a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item dropdown" th:if="${user!=null}">-->
-<!--                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"-->
-<!--                           role="button"-->
-<!--                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"-->
-<!--                           th:text="${user.getUsername()}">-->
-<!--                        </a>-->
-<!--                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
-<!--                            <a class="dropdown-item" th:href="@{/user/product-manage}">我的闲置</a>-->
-<!--                            <a class="dropdown-item" th:href="@{/user/user-manage}">我的信息</a>-->
-<!--                            <a class="dropdown-item" th:href="@{/user/comment-manage}">我的留言</a>-->
-<!--                            <a class="dropdown-item" th:href="@{/user/announce-manage}">公告</a>-->
-<!--                            <a class="dropdown-item" th:href="@{logout}">退出</a>-->
-<!--                        </div>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item active" th:if="${isAdmin}">-->
-<!--                        <a class="nav-link" th:href="@{/admin/admin-manage}" >后台管理入口-->
-<!--                            <span class="sr-only">(current)</span></a>-->
-<!--                    </li>-->
-
-
-<!--                    <li class="nav-item active " th:if="${user==null}">-->
-<!--                        <a class="nav-link" th:href="@{/login}">登录-->
-<!--                            <span-->
-<!--                                    class="sr-only">(current)-->
-<!--			                </span></a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item active " th:if="${user==null}">-->
-<!--                        <a class="nav-link" th:href="@{register}">注册-->
-<!--                            <span-->
-<!--                                    class="sr-only">(current)-->
-<!--			                </span></a>-->
-<!--                    </li>-->
-
-<!--                </ul>-->
-<!--            </div>-->
-<!--        </nav>-->
+        <!--导航条-->
         <div id="head" th:include="common/template :: common_head"></div>
 
         <!-- Header Middle Area -->
@@ -113,7 +64,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-7 col-12">
                         <div class="header-logo">
-                            <a href="index.html">
+                            <a th:href="@{/index}">
                                 <img src="/imgs/logo2.png" alt="logo">
                             </a>
                         </div>
