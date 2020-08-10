@@ -72,7 +72,7 @@ public class ProductController {
             return "redirect:/user/product-manage";
         }
         else{
-            return "redirect:/admin/admin/product-manage";
+            return "redirect:/user/product-manage";
         }
 
     }
@@ -90,11 +90,17 @@ public class ProductController {
 
     //    修改商品信息操作
     @RequestMapping(value = "/product/update/{id}", method = RequestMethod.POST)
-    public String updateProduct(Product product,Model model,
-                                HttpSession session) throws IllegalStateException{
-//        保存上传信息
-        Product p;
-        p=productService.saveProduct(product);
+    public String updateProduct(Product product,
+                                @RequestParam("files") MultipartFile[] files,
+                                Model model, HttpSession session,
+                                @PageableDefault(size = 8, sort = {"createTime"}, direction = Sort.Direction.DESC) Pageable pageable)
+            throws IllegalStateException, IOException{
+        try{
+            product.setUser(SecurityUtils.getUser());
+            productService.saveProduct(product,files,session);
+        }catch (Exception e){
+            log.error(e.toString());
+        }
         return "redirect:/user/product-manage";
     }
 
@@ -117,7 +123,7 @@ public class ProductController {
         }
         log.info("保存商品信息成功");
         model.addAttribute("page",productService.listProduct(pageable));
-        return "index";
+        return "redirect:/index";
     }
 
 
