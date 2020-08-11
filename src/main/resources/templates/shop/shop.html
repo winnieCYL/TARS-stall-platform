@@ -18,8 +18,6 @@
     <link rel="stylesheet" href="/css/custom.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-    <!--移植了二手书的CSS-->
-    <link rel="stylesheet" type="text/css" href="/css/book.css">
 </head>
 <body>
 <!-- Wrapper -->
@@ -243,27 +241,6 @@
         </div>
         <!--// Product Page Wrapper -->
 
-<!--        地摊的商品详情
-        <div id="book-container">
-            <h3 class="book-title"><a href="#">| 所有商品</a></h3>
-            <ul class="book-lists">
-                <c:forEach items="${books}" var="book" varStatus="bookStatus">
-                    <li class="book-list">
-                        <a href="bookDetail.do?id=${book.getId()}" class="book-pic" target="_blank">
-                            <img src="<%=request.getContextPath()%>/img/book-list/article/${book.getBookImage().getId()}.jpg">
-                        </a>
-                        <a href="#" class="book-info">
-                            <h5 class="book-name">${book.getName()}</h5>
-                            <span class="book-detail">${book.getDescription()}</span>
-                        </a>
-                        <span class="book-price">￥${book.getPrice()}
-						<a href="#" class="book-buy">立即下单</a>
-                </span>
-                    </li>
-                </c:forEach>
-
-            </ul>  product list end
-        </div>  地摊商品详情 end-->
         <div class="shop-area bg-white section-padding-bottom-md">
             <div class="container">
                 <h2><span class="badge badge-warning"  th:text="${type}"></span></h2>
