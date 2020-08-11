@@ -137,6 +137,7 @@
                 <!-- Shop Page Products -->
                 <div class="row justify-content-center shop-page-products products-wrapper">
                     <!-- Single Product -->
+                    <!--注意这里的shop变量，是不是改成product更好呢-->
                     <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12"
                          th:each="shop : ${page}">
                         <div class="product-item">
@@ -147,7 +148,7 @@
                                     <!--<img src="/asdfasdf/闲置交易.png">-->
                                 </p>
                                 <p class="add-to-cart-button">
-                                    <a href="#" th:href="@{/shop/{id}(id=${shop.id})}"><span>进去看看
+                                    <a href="#" th:href="@{/product/{id}(id=${shop.id})}"><span>进去看看
                                 </span></a>
                                 </p>
                             </div>
