@@ -17,7 +17,44 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="/css/custom.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-
+    <script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=ZIABZ-2RI3D-EF54E-HHWCC-TAWQF-KVBRJ"></script>
+    <style type="text/css">
+        #map{
+            /*            left:10%;*/
+            width:300px;
+            height:40%;
+            word-wrap: break-word;
+            min-width:30%;
+            min-height:300px;
+            /*            display: inline-block;*/
+        }
+        h2,p{
+            text-align: center;
+        }
+        h2{
+            background-color: white;
+            width: 30%;
+            margin: 0 auto;
+        }
+        h2::after{
+            content: "";
+            border: 1px grey solid;
+            width: 50px;
+            display: inline-block;
+            position: relative;
+            top: -5px;
+            left: 10px;
+        }
+        h2::before{
+            content: "";
+            border: 1px grey solid;
+            width: 50px;
+            display: inline-block;
+            position: relative;
+            top: -5px;
+            left: -10px;
+        }
+    </style>
 </head>
 <body>
 <!-- Wrapper -->
@@ -92,7 +129,7 @@
                 </div>
                 <!--// Shop Breadcrumb -->
 
-                <!-- Poduct Details Wrapper -->
+                <!-- Shop Details Wrapper -->
                 <div class="row">
 
                     <div class="col-lg-9">
@@ -160,90 +197,28 @@
 
                     <div class="col-lg-3">
                         <div class="widgets">
-
-                            <div class="single-widget widget-related-product">
-                                <h5 class="widget-title">同类推荐</h5>
-                                <ul>
-                                    <li>
-                                        <div class="product-item">
-                                            <div class="product-item-images">
-                                                <a href="product-details-right-sidebar.html"
-                                                   class="product-item-image-inner">
-                                                    <img
-                                                            th:src="@{/}+${user.imgs.get(0)}"
-                                                            alt="product image">
-                                                </a>
-                                            </div>
-                                            <div class="product-item-content">
-                                                <div class="product-item-content-left">
-                                                    <h5><a
-                                                            href="product-details-right-sidebar.html">test</a>
-                                                    </h5>
-                                                    <div class="price-box">
-                                                        <span class="pricebox-price">100</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div class="product-item">
-                                            <div class="product-item-images">
-                                                <a href="product-details-right-sidebar.html"
-                                                   class="product-item-image-inner">
-                                                    <img th:src="@{/}+${user.imgs.get(0)}"
-                                                         alt="product image">
-                                                </a>
-                                            </div>
-                                            <div class="product-item-content">
-                                                <div class="product-item-content-left">
-                                                    <h5><a
-                                                            href="product-details-right-sidebar.html">test</a>
-                                                    </h5>
-                                                    <div class="price-box">
-                                                        <span class="pricebox-price">100</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div class="product-item">
-                                            <div class="product-item-images">
-                                                <a href="product-details-right-sidebar.html"
-                                                   class="product-item-image-inner">
-                                                    <img th:src="@{/}+${user.imgs.get(0)}"
-                                                         alt="product image">
-                                                </a>
-                                            </div>
-                                            <div class="product-item-content">
-                                                <div class="product-item-content-left">
-                                                    <h5><a
-                                                            href="product-details-right-sidebar.html">test</a>
-                                                    </h5>
-                                                    <div class="price-box">
-                                                        <span class="pricebox-price">100</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                            <div id="map"></div>
+                            <script type="text/javascript">
+                                var map = new qq.maps.Map(document.getElementById("map"), {
+                                    // 地图的中心地理坐标。
+                                    center: new qq.maps.LatLng(31.2836614,121.5000599),
+                                    zoom: 15
+                                });
+                            </script>
                         </div>
                     </div>
 
                 </div>
-                <!--// Poduct Details Wrapper -->
+                <!--// Shop Details Wrapper -->
             </div>
         </div>
         <!--// Product Page Wrapper -->
 
         <div class="shop-area bg-white section-padding-bottom-md">
             <div class="container">
-                <h2><span class="badge badge-warning"  th:text="${type}"></span></h2>
+                <h2 class="book-title"><a href="#">地摊商品</a></h2>
+                <HR style="border:3 double green" SIZE=3>
+                <!--                <h2><span class="badge badge-warning"  th:text="${type}"></span></h2>-->
                 <!-- Shop Page Products -->
                 <div class="row justify-content-center shop-page-products products-wrapper">
                     <!-- Single Product -->
