@@ -21,7 +21,6 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="/css/custom.css">
 
-
     <!-- Js Files -->
     <script src="/js/jquery-3.4.1.slim.min.js"></script>
     <script src="/js/modernizr-3.6.0.min.js"></script>
@@ -29,6 +28,9 @@
     <script src="/js/main.js"></script>
     <script src="/js/popper.min.js"></script>
     <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+    <script type="text/javascript" src="/js/slider.js"></script>
+
+    <link rel="stylesheet" href="../static/css/style.css">\
 
 </head>
 <body>
@@ -59,14 +61,52 @@
                             </a>
                         </div>
                     </div>
+
                     <div class="col-lg-2 col-md-3 col-sm-4 col-12">
                         <a class="btn btn-outline-warning btn-lg btn-block" href="product-input"
                            role="button">发 布</a>
                     </div>
                 </div>
+                <!--                <div class="map-logo">-->
+                <!--                    <a href="/maps/${map.getpage()}"  target="_blank">-->
+                <!--                        <img src="img/imgshop/mapimg/1.png">-->
+                <!--                    </a>-->
+                <!--                </div>-->
+                <!--轮播-->
+
             </div>
-        </div>
-        <!--// Header Middle Area -->
+
+            <div id="decoroll2" class="imgfocus">
+                <div id="decoimg_a2" class="imgbox">
+                    <div class="decoimg_b2">
+                        <a href="//www.jb51.net">
+                            <img src="img/imgshop/shopimg/1.png">
+                        </a>
+                    </div>
+                    <div class="decoimg_b2">
+                        <a href="//www.jb51.net">
+                            <img src="img/imgshop/shopimg/2.png">
+                        </a>
+                    </div>
+                    <div class="decoimg_b2">
+                        <a href="//www.jb51.net">
+                            <img src="img/imgshop/shopimg/3.png">
+                        </a>
+                    </div>
+                    <div class="decoimg_b2">
+                        <a href="//www.jb51.net">
+                            <img src="img/imgshop/shopimg/4.png">
+                        </a>
+                    </div>
+                </div>
+                <ul id="deconum2" class="num_a2">
+                    <li><a href="javascript:void(0)" hidefocus="true" target="_self">1</a></li>
+                    <li><a href="javascript:void(0)" hidefocus="true" target="_self">2</a></li>
+                    <li><a href="javascript:void(0)" hidefocus="true" target="_self">3</a></li>
+                    <li><a href="javascript:void(0)" hidefocus="true" target="_self">4</a></li>
+                </ul>
+            </div>
+
     </header>
     <!--// Header -->
 
@@ -83,7 +123,7 @@
     </div>
 
 
-    <!-- Page Conttent -->
+    <!-- Page Content -->
     <main class="page-content">
         <!-- Fullwidth Shop Area -->
         <div class="shop-area bg-white section-padding-bottom-md">
@@ -93,26 +133,26 @@
                 <div class="row justify-content-center shop-page-products products-wrapper">
                     <!-- Single Product -->
                     <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12"
-                         th:each="product : ${page}">
+                         th:each="shop : ${page}">
                         <div class="product-item">
                             <div class="product-item-images">
                                 <p class="product-item-image-inner">
-                                    <img th:if="${product.imgs.size()>0}"
-                                         th:src="${product.imgs.get(0)}">
+                                    <img th:if="${shop.imgs.size()>0}"
+                                         th:src="${shop.imgs.get(0)}">
                                     <!--<img src="/asdfasdf/闲置交易.png">-->
                                 </p>
                                 <p class="add-to-cart-button">
-                                    <a href="#" th:href="@{/product/{id}(id=${product.id})}"><span>进去看看
+                                    <a href="#" th:href="@{/shop/{id}(id=${shop.id})}"><span>进去看看
                                 </span></a>
                                 </p>
                             </div>
                             <div class="product-item-content">
                                 <div class="product-item-content-left">
-                                    <h5><a href="product-details-right-sidebar.html"
-                                           th:text="${product.title}"></a></h5>
+                                    <h5><a href="shop-details-right-sidebar.html"
+                                           th:text="${shop.title}"></a></h5>
                                     <div class="price-box">
                                         <span class="pricebox-price"
-                                              th:text="${product.price}"></span>
+                                              th:text="${shop.price}"></span>
                                     </div>
                                 </div>
                             </div>
@@ -140,6 +180,27 @@
         <!--// Page Conttent -->
     </main>
 </div>
+</div>
+
+<!--轮播图-->
+<script type="text/javascript">
+    Qfast.add('widgets', { path: "http://hovertree.com/texiao/js/1/js/terminator2.2.min.js", type: "js", requires: ['fx'] });
+    Qfast(false, 'widgets', function () {
+        K.tabs({
+            id: 'decoroll2', //焦点图包裹id
+            conId: "decoimg_a2", //大图域包裹id
+            tabId: "deconum2", //小圆点数字提示id
+            tabTn: "a",
+            conCn: '.decoimg_b2', //大图域配置class
+            auto: 1, //自动播放 1或0
+            effect: 'fade', //效果配置
+            eType: 'mouseover', // 鼠标事件
+            pageBt: true, //是否有按钮切换页码
+            bns: ['.prev', '.next'], //前后按钮配置class
+            interval: 3000// 停顿时间
+        })
+    })
+</script>
 
 </body>
 
