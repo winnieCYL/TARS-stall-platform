@@ -62,7 +62,7 @@ public class ShopController {
             User currentuser = SecurityUtils.getUser();
             currentuser.setShopname(user.getShopname());
             currentuser.setLon(user.getLon());
-            currentuser.setLon(user.getLon());
+            currentuser.setLat(user.getLat());
             userService.saveUser(currentuser,files,session);
             log.info("更新商店信息成功");
         }catch (Exception e){

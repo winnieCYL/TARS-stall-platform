@@ -167,7 +167,8 @@
                             <!-- Product Details Right -->
                             <div class="product-details-right">
                                 <h5 class="product-title" th:text="${user.shopname}"></h5>
-
+<!--                                <h5 class="product-title" th:text="${user.lon}"></h5>
+                                <h5 class="product-title" th:text="${user.lat}"></h5>-->
 
 
                                 <!--<p>交易地址</p>-->
@@ -198,10 +199,11 @@
                     <div class="col-lg-3">
                         <div class="widgets">
                             <div id="map"></div>
-                            <script type="text/javascript">
+                            <script type="text/javascript" th:inline="javascript">
+                                var user = [[${user}]];
                                 var map = new qq.maps.Map(document.getElementById("map"), {
                                     // 地图的中心地理坐标。
-                                    center: new qq.maps.LatLng(31.2836614,121.5000599),
+                                    center: new qq.maps.LatLng(user.lat,user.lon),
                                     zoom: 15
                                 });
                             </script>
