@@ -49,7 +49,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-4 col-12">
                         <form class="header-search" th:action="@{/search}" method="post">
-                            <input type="text" placeholder="搜索闲置...." name="query"
+                            <input type="text" placeholder="搜索感兴趣的小东西...." name="query"
                                    th:value="${query}">
                             <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
@@ -64,7 +64,12 @@
 
                     <div class="col-lg-2 col-md-3 col-sm-4 col-12">
                         <a class="btn btn-outline-warning btn-lg btn-block" href="product-input"
-                           role="button">发 布</a>
+                           role="button">发 布 商 品</a>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-12">
+                        <a class="btn btn-outline-warning btn-lg btn-block" href="product-input"
+                           role="button">进 入 地 图</a>
                     </div>
                 </div>
                 <!--                <div class="map-logo">-->
