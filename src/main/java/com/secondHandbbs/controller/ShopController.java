@@ -1,5 +1,6 @@
 package com.secondHandbbs.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.secondHandbbs.domain.User;
 import com.secondHandbbs.service.ProductService;
 import com.secondHandbbs.service.UserService;
@@ -44,7 +45,7 @@ public class ShopController {
     }
 
     //修改商品信息页面
-    @RequestMapping("/shop/update")
+    @RequestMapping("/shop-update")
     public String shopUpdate(Model model,HttpSession session) {
         model.addAttribute("user", SecurityUtils.getUser());
         return "shop/shop-update";
@@ -62,7 +63,7 @@ public class ShopController {
             User currentuser = SecurityUtils.getUser();
             currentuser.setShopname(user.getShopname());
             currentuser.setLon(user.getLon());
-            currentuser.setLon(user.getLon());
+            currentuser.setLat(user.getLat());
             userService.saveUser(currentuser,files,session);
             log.info("更新商店信息成功");
         }catch (Exception e){
@@ -134,5 +135,14 @@ public class ShopController {
         return "shop/shop";
     }
 
+    //所有商店所在的地图页面
+    @GetMapping({"/shopMap"})
+    String indexShop(Model model,@PageableDefault(size = 16, sort = {"createTime"},
+            direction = Sort.Direction.DESC) Pageable pageable) {
+        model.addAttribute("page",userService.listUser(pageable));
+        model.addAttribute("uLoc",userService.getLoc());
+
+        return "allShopMap";
+    }
 
 }
