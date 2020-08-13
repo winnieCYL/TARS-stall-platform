@@ -37,7 +37,7 @@
 		<dependency>
 			<groupId>com.tencent.tars</groupId>
 			<artifactId>tars-spring-boot-starter</artifactId>
-			<version>1.6.1</version>
+			<version>1.7.2</version>
 		</dependency>
 
 		<dependency>
@@ -90,6 +90,56 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<version>2.2.6.RELEASE</version>
+			</plugin>
+			<plugin>
+				<groupId>com.tencent.tars</groupId>
+				<artifactId>tars-maven-plugin</artifactId>
+				<version>1.7.2</version>
+				<configuration>
+					<tars2JavaConfig>
+						<!-- tars文件位置 -->
+						<tarsFiles>
+							<tarsFile>${basedir}/src/main/resources/hello.tars</tarsFile>
+						</tarsFiles>
+						<!-- 源文件编码 -->
+						<tarsFileCharset>UTF-8</tarsFileCharset>
+						<!-- 生成服务端代码 -->
+						<servant>true</servant>
+						<!-- 生成源代码编码 -->
+						<charset>UTF-8</charset>
+						<!-- 生成的源代码目录 -->
+						<srcPath>${basedir}/src/main/java</srcPath>
+						<!-- 生成源代码包前缀 -->
+						<packagePrefixName>com.qq.tars.quickstart.server.</packagePrefixName>
+					</tars2JavaConfig>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<archive>
+						<manifestEntries>
+							<Class-Path>conf/</Class-Path>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<!--设置打包主类-->
+					<mainClass>com.qq.tars.quickstart.server.QuickStartApplication</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+					<goals>
+						<goal>repackage</goal>
+					</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
