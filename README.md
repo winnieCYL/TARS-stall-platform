@@ -33,3 +33,19 @@ ToDo: 数据库字段更新，前后端连接, web的debug\
 
 ![search](https://github.com/winnieCYL/TARS-stall-platform/blob/master/photo/导入数据库.png)
 
+### 项目运行
+
+* 1. 添加启动配置项目
+
+  ![search](https://github.com/winnieCYL/TARS-stall-platform/blob/master/photo/配置启动项.png)
+
+* 2. 修改application.properties中的本地配置，包括mysql和初始图片路径（一般是到img/upload_img)
+
+* 3. 启动MySQL服务，端口号为3306
+
+* 4. 启动服务：Run Application
+
+* 5. 登陆localhost:8080/index
+
+  ![search](https://github.com/winnieCYL/TARS-stall-platform/blob/master/photo/地摊首页.png)
+
