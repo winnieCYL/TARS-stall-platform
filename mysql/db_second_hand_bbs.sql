@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 12/08/2020 01:55:53
+ Date: 14/08/2020 00:22:25
 */
 
 SET NAMES utf8mb4;
@@ -28,6 +28,10 @@ CREATE TABLE `adminuser`  (
   `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of adminuser
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for announce
@@ -148,10 +152,6 @@ INSERT INTO `product` VALUES (83, '民国玻璃红黄床头灯', '2020-08-12 01:
 INSERT INTO `product` VALUES (84, '民国玻璃黄白灯盏', '2020-08-12 01:27:10', 'nxczx1997@163.com', '123456', 1200, '民国灯盏', '生活类', '123', 81);
 INSERT INTO `product` VALUES (85, '铁质书桌灯', '2020-08-12 01:27:58', 'nxczx1997@163.com', '123456', 100, '70年代桌脚灯', '生活类', '123', 81);
 INSERT INTO `product` VALUES (86, '民国珐琅雕像灯', '2020-08-12 01:28:59', 'nxczx1997@163.com', '123456', 3000, '民国珐琅灯', '生活类', '123', 81);
-INSERT INTO `product` VALUES (87, '民国珐琅雕像灯', '2020-08-12 01:47:06', 'nxczx1997@163.com', '123456', 3000, '民国珐琅灯', '生活类', '123', 81);
-INSERT INTO `product` VALUES (88, '民国珐琅雕像灯', '2020-08-12 01:49:26', 'nxczx1997@163.com', '123456', 3000, '民国珐琅灯', '生活类', '123', 81);
-INSERT INTO `product` VALUES (89, '民国珐琅雕像灯', '2020-08-12 01:49:34', 'nxczx1997@163.com', '123456', 3000, '民国珐琅灯', '生活类', '123', 81);
-INSERT INTO `product` VALUES (90, '民国珐琅雕像灯', '2020-08-12 01:49:50', 'nxczx1997@163.com', '123456', 3000, '民国珐琅灯', '生活类', '123', 81);
 
 -- ----------------------------
 -- Table structure for product_imgs
@@ -208,10 +208,6 @@ INSERT INTO `product_imgs` VALUES (83, 'productsImgs\\81\\民国灯盏\\101.jpg'
 INSERT INTO `product_imgs` VALUES (84, 'productsImgs\\81\\民国灯盏\\102.jpg');
 INSERT INTO `product_imgs` VALUES (85, 'productsImgs\\81\\70年代桌脚灯\\103.jpg');
 INSERT INTO `product_imgs` VALUES (86, 'productsImgs\\81\\民国珐琅灯\\104.jpg');
-INSERT INTO `product_imgs` VALUES (87, 'productsImgs\\81\\民国珐琅灯\\104.jpg');
-INSERT INTO `product_imgs` VALUES (88, 'productsImgs\\81\\民国珐琅灯\\104.jpg');
-INSERT INTO `product_imgs` VALUES (89, 'productsImgs\\81\\民国珐琅灯\\104.jpg');
-INSERT INTO `product_imgs` VALUES (90, 'productsImgs\\81\\民国珐琅灯\\104.jpg');
 
 -- ----------------------------
 -- Table structure for sys_role
@@ -260,16 +256,16 @@ CREATE TABLE `sys_user`  (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES (32, 'nxczx1997@163.com', '$2a$10$PXKejm7Os/9.gdnEZ4TLbOaHe7AfAJFFc0suonpGyv36fCQIv2JPC', '1.3163E+11', 'syjd', '123_cyl', '男', NULL, '2020-08-12 00:45:17', b'0', b'0', b'0', b'0', 0.0000000, 120.0001300, '收音机店');
-INSERT INTO `sys_user` VALUES (37, 'nxczx1997@163.com', '$2a$10$tBBAyjPsk4tc6a4s2yQDCOOjFJA000b/t138bOd2SItWYvXPsJAJe', '1.3163E+11', 'dsj', '124_ymj', '男', NULL, '2020-08-12 00:53:33', b'0', b'0', b'0', b'0', 0.0000000, 120.0001400, '电视机');
-INSERT INTO `sys_user` VALUES (45, 'nxczx1997@163.com', '$2a$10$xKMxfRsV9sxolUnZLiWeJuh.c1s8wv6zBHF.yqu3cCM1N6rXP/Hny', '1.3163E+11', 'gdxk', '125_aha', '男', NULL, '2020-08-12 01:00:12', b'0', b'0', b'0', b'0', 0.0000000, 120.0001500, '古代相框');
-INSERT INTO `sys_user` VALUES (51, 'nxczx1997@163.com', '$2a$10$wwnbsx2NzMQG2xhDE7dT2.1Ah.7RGF4oK5LzlueYu9gBbYx1UGnvu', '1.3163E+11', 'kykt', '126_hjh', '女', NULL, '2020-08-12 01:05:29', b'0', b'0', b'0', b'0', 0.0000000, 120.0001600, '考研考托');
-INSERT INTO `sys_user` VALUES (56, 'nxczx1997@163.com', '$2a$10$YBbGNTfKbKe1hOUVJuPd/OCUPBicHw91ttxsPuqPUBwzEa9IjLbmu', '1.3163E+11', 'gkbb', '127_hzt', '女', NULL, '2020-08-12 01:07:46', b'0', b'0', b'0', b'0', 0.0000000, 120.0001700, '高考必备');
-INSERT INTO `sys_user` VALUES (61, 'nxczx1997@163.com', '$2a$10$SexXgwJQ6yYnpvz6ALF.auV2pP9ZljY4xuqHtG/KvcBj.9C88m7GS', '1.3163E+11', 'mnxt', '128_wyf', '女', NULL, '2020-08-12 01:09:52', b'0', b'0', b'0', b'0', 0.0000000, 120.0001800, '美女小摊');
-INSERT INTO `sys_user` VALUES (66, 'nxczx1997@163.com', '$2a$10$2Zknldb9vbCyOT/402PaDeB3tH3CDSuERzM0X.73O0ptdg2TY2ooG', '1.3163E+11', 'gdmmdd', '129_yxqx', '女', NULL, '2020-08-12 01:12:17', b'0', b'0', b'0', b'0', 0.0000000, 120.0001900, '挂得满满当当');
-INSERT INTO `sys_user` VALUES (71, 'nxczx1997@163.com', '$2a$10$BrmHodJF0hVVLyDPkhL3nO6qDrB5LO9sft5l5c/sf45aonOSZG..C', '1.3163E+11', 'zbhxs', '130_czx', '男', NULL, '2020-08-12 01:15:20', b'0', b'0', b'0', b'0', 0.0000000, 120.0002000, '珠宝黑心商');
-INSERT INTO `sys_user` VALUES (76, 'nxczx1997@163.com', '$2a$10$CmRiR.fDNZeAFhc.tsDXbu/6Kwgz.rf8fiUqc1sXcvZb/og7kIepq', '1.3163E+11', 'ywxbj', '131_lm', '男', NULL, '2020-08-12 01:18:05', b'0', b'0', b'0', b'0', 0.0000000, 120.0002100, '义务小摆件');
-INSERT INTO `sys_user` VALUES (81, 'nxczx1997@163.com', '$2a$10$g0m71CNAkDn2JbSic2grt.z2.qEVCvLktnQqS57j0.btbkTBY7ukq', '1.3163E+11', 'gldq', '132_tx', '男', NULL, '2020-08-12 01:21:11', b'0', b'0', b'0', b'0', 0.0000000, 120.0002200, '各类电器');
+INSERT INTO `sys_user` VALUES (32, 'nxczx1997@163.com', '$2a$10$PXKejm7Os/9.gdnEZ4TLbOaHe7AfAJFFc0suonpGyv36fCQIv2JPC', '1.3163E+11', 'syjd', '123_cyl', '男', NULL, '2020-08-12 00:45:17', b'0', b'0', b'0', b'0', 31.1067320, 120.0001300, '收音机店');
+INSERT INTO `sys_user` VALUES (37, 'nxczx1997@163.com', '$2a$10$tBBAyjPsk4tc6a4s2yQDCOOjFJA000b/t138bOd2SItWYvXPsJAJe', '1.3163E+11', 'dsj', '124_ymj', '男', NULL, '2020-08-12 00:53:33', b'0', b'0', b'0', b'0', 31.1067430, 120.0001400, '电视机');
+INSERT INTO `sys_user` VALUES (45, 'nxczx1997@163.com', '$2a$10$xKMxfRsV9sxolUnZLiWeJuh.c1s8wv6zBHF.yqu3cCM1N6rXP/Hny', '1.3163E+11', 'gdxk', '125_aha', '男', NULL, '2020-08-12 01:00:12', b'0', b'0', b'0', b'0', 31.1067540, 120.0001500, '古代相框');
+INSERT INTO `sys_user` VALUES (51, 'nxczx1997@163.com', '$2a$10$wwnbsx2NzMQG2xhDE7dT2.1Ah.7RGF4oK5LzlueYu9gBbYx1UGnvu', '1.3163E+11', 'kykt', '126_hjh', '女', NULL, '2020-08-12 01:05:29', b'0', b'0', b'0', b'0', 31.1067650, 120.0001600, '考研考托');
+INSERT INTO `sys_user` VALUES (56, 'nxczx1997@163.com', '$2a$10$YBbGNTfKbKe1hOUVJuPd/OCUPBicHw91ttxsPuqPUBwzEa9IjLbmu', '1.3163E+11', 'gkbb', '127_hzt', '女', NULL, '2020-08-12 01:07:46', b'0', b'0', b'0', b'0', 31.1067760, 120.0001700, '高考必备');
+INSERT INTO `sys_user` VALUES (61, 'nxczx1997@163.com', '$2a$10$SexXgwJQ6yYnpvz6ALF.auV2pP9ZljY4xuqHtG/KvcBj.9C88m7GS', '1.3163E+11', 'mnxt', '128_wyf', '女', NULL, '2020-08-12 01:09:52', b'0', b'0', b'0', b'0', 31.1067870, 120.0001800, '美女小摊');
+INSERT INTO `sys_user` VALUES (66, 'nxczx1997@163.com', '$2a$10$2Zknldb9vbCyOT/402PaDeB3tH3CDSuERzM0X.73O0ptdg2TY2ooG', '1.3163E+11', 'gdmmdd', '129_yxqx', '女', NULL, '2020-08-12 01:12:17', b'0', b'0', b'0', b'0', 31.1067980, 120.0001900, '挂得满满当当');
+INSERT INTO `sys_user` VALUES (71, 'nxczx1997@163.com', '$2a$10$BrmHodJF0hVVLyDPkhL3nO6qDrB5LO9sft5l5c/sf45aonOSZG..C', '1.3163E+11', 'zbhxs', '130_czx', '男', NULL, '2020-08-12 01:15:20', b'0', b'0', b'0', b'0', 31.1068090, 120.0002000, '珠宝黑心商');
+INSERT INTO `sys_user` VALUES (76, 'nxczx1997@163.com', '$2a$10$CmRiR.fDNZeAFhc.tsDXbu/6Kwgz.rf8fiUqc1sXcvZb/og7kIepq', '1.3163E+11', 'ywxbj', '131_lm', '男', NULL, '2020-08-12 01:18:05', b'0', b'0', b'0', b'0', 31.1068200, 120.0002100, '义务小摆件');
+INSERT INTO `sys_user` VALUES (81, 'nxczx1997@163.com', '$2a$10$g0m71CNAkDn2JbSic2grt.z2.qEVCvLktnQqS57j0.btbkTBY7ukq', '1.3163E+11', 'gldq', '132_tx', '男', NULL, '2020-08-12 01:21:11', b'0', b'0', b'0', b'0', 31.1068310, 120.0002200, '各类电器');
 
 -- ----------------------------
 -- Table structure for sys_user_role
