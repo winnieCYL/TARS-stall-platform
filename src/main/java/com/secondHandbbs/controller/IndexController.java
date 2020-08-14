@@ -59,6 +59,7 @@ String search(@RequestParam String query,Model model,
     if ("".equals(query)){
         return "/index";
     }
+    model.addAttribute("user", SecurityUtils.getUser());
     model.addAttribute("page", productService.listProduct("%"+query+"%", pageable));
     return "/product/search";
 }
