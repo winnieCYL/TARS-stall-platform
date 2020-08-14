@@ -41,7 +41,7 @@
         var count = 0;
         var usersJson = [[${uLoc}]];
         for(let u of usersJson) {
-            let pos = new qq.maps.LatLng(u.lon, u.lat);
+            let pos = new qq.maps.LatLng(u.lat, u.lon);
             let infoWin = new qq.maps.InfoWindow({
                 map: map,
                 zIndex: 10,

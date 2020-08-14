@@ -1,6 +1,7 @@
 package com.secondHandbbs.controller;
 
 
+/*import com.qq.tars.spring.annotation.TarsHttpService;*/
 import com.secondHandbbs.service.CommentService;
 import com.secondHandbbs.service.ProductService;
 import com.secondHandbbs.service.UserService;
@@ -21,6 +22,7 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 @Controller
 @EnableAutoConfiguration
+/*@TarsHttpService("index")*/
 public class IndexController {
 
     @Autowired
@@ -51,12 +53,16 @@ public class IndexController {
     }
 
 //搜索
-    @PostMapping("product/search")
-    String search(@RequestParam String query,Model model,
-                  @PageableDefault(size = 8, direction = Sort.Direction.DESC) Pageable pageable){
-        model.addAttribute("page", productService.listProduct("%"+query+"%", pageable));
-        return "search";
+@PostMapping("/search")
+String search(@RequestParam String query,Model model,
+              @PageableDefault(size = 8, direction = Sort.Direction.DESC) Pageable pageable){
+    if ("".equals(query)){
+        return "/index";
     }
+    model.addAttribute("page", productService.listProduct("%"+query+"%", pageable));
+    return "/product/search";
+}
+
 
     //主页中不同的物品分类
     @GetMapping(value = "index{type}")
