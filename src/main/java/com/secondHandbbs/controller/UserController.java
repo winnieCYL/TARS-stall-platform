@@ -25,8 +25,8 @@ public class UserController {
 
 
     //    主页控制
-    @RequestMapping("/user/user-manage")
-    String usermanage(Model model) {
+    @PostMapping("/user/user-manage")
+    String userManage(Model model) {
         model.addAttribute("user", SecurityUtils.getUser());
         return "/user/user-manage";
     }

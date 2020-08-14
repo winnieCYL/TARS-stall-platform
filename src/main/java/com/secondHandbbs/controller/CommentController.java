@@ -62,6 +62,7 @@ public class CommentController {
             direction = Sort.Direction.ASC) Pageable pageable) {
         Long userid= SecurityUtils.getUser().getId();
 //        System.out.print(productService.listProduct(user.getId(),pageable));
+        model.addAttribute("user", SecurityUtils.getUser());
         model.addAttribute("commentList",commentService.listComment(userid,pageable));
         return "user/comment-manage";
     }

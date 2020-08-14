@@ -62,7 +62,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/js/**", "/css/**", "/imgs/**","/img/**","/productsImgs/**");
+        web.ignoring().antMatchers("/js/**", "/css/**", "/imgs/**","/img/**","/productsImgs/**","/fonts/fontawesome-webfont.eot?v=4.7.0");
     }
     /**
      * anyRequest          |   匹配所有请求路径
@@ -89,6 +89,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/product/**").permitAll()
                 .antMatchers("/register/**").permitAll()
                 .antMatchers("/registerUser/**").permitAll()
+                .antMatchers("/index**").permitAll()
+                .antMatchers("/shopMap").permitAll()
+                .antMatchers("/shop").permitAll()
+                .antMatchers("/shop/**").permitAll()
                 .anyRequest().authenticated()
 //                测试全部不用权限
 //                .anyRequest().permitAll()

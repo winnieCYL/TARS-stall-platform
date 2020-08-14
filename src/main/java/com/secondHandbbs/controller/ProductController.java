@@ -48,12 +48,13 @@ public class ProductController {
     }
 
 //商品管理界面
-    @RequestMapping("user/product-manage")
+    @RequestMapping("/user/product-manage")
     public String productManager(Model model,HttpSession session,@PageableDefault(size = 8,
             direction = Sort.Direction.DESC) Pageable pageable) {
         User user= SecurityUtils.getUser();
         model.addAttribute("page",productService.listProduct(user.getId(),pageable));
-        return "user/product-manage";
+        model.addAttribute("user", SecurityUtils.getUser());
+        return "/user/product-manage";
     }
 
 //删除商品信息
