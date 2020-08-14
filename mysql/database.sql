@@ -292,7 +292,7 @@ CREATE TABLE `sys_role` (
 
 LOCK TABLES `sys_role` WRITE;
 /*!40000 ALTER TABLE `sys_role` DISABLE KEYS */;
-/*wait to update*/
+INSERT INTO `sys_role` VALUES (1,'ROLE_admin','admin','1','2020-08-14 09:28:37','超级管理员','father','2020-08-14 09:28:37'),(2,'ROLE_user','common','1','2020-08-14 09:28:37','普通用户',NULL,'2020-08-14 09:28:37');
 /*!40000 ALTER TABLE `sys_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -330,16 +330,16 @@ CREATE TABLE `sys_user` (
 
 LOCK TABLES `sys_user` WRITE;
 /*!40000 ALTER TABLE `sys_user` DISABLE KEYS */;
-INSERT INTO `sys_user` VALUES (32, 'nxczx1997@163.com', '$2a$10$PXKejm7Os/9.gdnEZ4TLbOaHe7AfAJFFc0suonpGyv36fCQIv2JPC', '1.3163E+11', 'syjd', '123_cyl', '男', NULL, '2020-08-12 00:45:17', b'0', b'0', b'0', b'0', 0.0000000, 120.0001300, '收音机店');
-INSERT INTO `sys_user` VALUES (37, 'nxczx1997@163.com', '$2a$10$tBBAyjPsk4tc6a4s2yQDCOOjFJA000b/t138bOd2SItWYvXPsJAJe', '1.3163E+11', 'dsj', '124_ymj', '男', NULL, '2020-08-12 00:53:33', b'0', b'0', b'0', b'0', 0.0000000, 120.0001400, '电视机');
-INSERT INTO `sys_user` VALUES (45, 'nxczx1997@163.com', '$2a$10$xKMxfRsV9sxolUnZLiWeJuh.c1s8wv6zBHF.yqu3cCM1N6rXP/Hny', '1.3163E+11', 'gdxk', '125_aha', '男', NULL, '2020-08-12 01:00:12', b'0', b'0', b'0', b'0', 0.0000000, 120.0001500, '古代相框');
-INSERT INTO `sys_user` VALUES (51, 'nxczx1997@163.com', '$2a$10$wwnbsx2NzMQG2xhDE7dT2.1Ah.7RGF4oK5LzlueYu9gBbYx1UGnvu', '1.3163E+11', 'kykt', '126_hjh', '女', NULL, '2020-08-12 01:05:29', b'0', b'0', b'0', b'0', 0.0000000, 120.0001600, '考研考托');
-INSERT INTO `sys_user` VALUES (56, 'nxczx1997@163.com', '$2a$10$YBbGNTfKbKe1hOUVJuPd/OCUPBicHw91ttxsPuqPUBwzEa9IjLbmu', '1.3163E+11', 'gkbb', '127_hzt', '女', NULL, '2020-08-12 01:07:46', b'0', b'0', b'0', b'0', 0.0000000, 120.0001700, '高考必备');
-INSERT INTO `sys_user` VALUES (61, 'nxczx1997@163.com', '$2a$10$SexXgwJQ6yYnpvz6ALF.auV2pP9ZljY4xuqHtG/KvcBj.9C88m7GS', '1.3163E+11', 'mnxt', '128_wyf', '女', NULL, '2020-08-12 01:09:52', b'0', b'0', b'0', b'0', 0.0000000, 120.0001800, '美女小摊');
-INSERT INTO `sys_user` VALUES (66, 'nxczx1997@163.com', '$2a$10$2Zknldb9vbCyOT/402PaDeB3tH3CDSuERzM0X.73O0ptdg2TY2ooG', '1.3163E+11', 'gdmmdd', '129_yxqx', '女', NULL, '2020-08-12 01:12:17', b'0', b'0', b'0', b'0', 0.0000000, 120.0001900, '挂得满满当当');
-INSERT INTO `sys_user` VALUES (71, 'nxczx1997@163.com', '$2a$10$BrmHodJF0hVVLyDPkhL3nO6qDrB5LO9sft5l5c/sf45aonOSZG..C', '1.3163E+11', 'zbhxs', '130_czx', '男', NULL, '2020-08-12 01:15:20', b'0', b'0', b'0', b'0', 0.0000000, 120.0002000, '珠宝黑心商');
-INSERT INTO `sys_user` VALUES (76, 'nxczx1997@163.com', '$2a$10$CmRiR.fDNZeAFhc.tsDXbu/6Kwgz.rf8fiUqc1sXcvZb/og7kIepq', '1.3163E+11', 'ywxbj', '131_lm', '男', NULL, '2020-08-12 01:18:05', b'0', b'0', b'0', b'0', 0.0000000, 120.0002100, '义务小摆件');
-INSERT INTO `sys_user` VALUES (81, 'nxczx1997@163.com', '$2a$10$g0m71CNAkDn2JbSic2grt.z2.qEVCvLktnQqS57j0.btbkTBY7ukq', '1.3163E+11', 'gldq', '132_tx', '男', NULL, '2020-08-12 01:21:11', b'0', b'0', b'0', b'0', 0.0000000, 120.0002200, '各类电器');
+INSERT INTO `sys_user` VALUES (32, 'nxczx1997@163.com', '$2a$10$PXKejm7Os/9.gdnEZ4TLbOaHe7AfAJFFc0suonpGyv36fCQIv2JPC', '1.3163E+11', 'syjd', '123_cyl', '男', NULL, '2020-08-12 00:45:17', b'0', b'0', b'0', b'0', 31.2864000, 121.5030710, '收音机店');
+INSERT INTO `sys_user` VALUES (37, 'nxczx1997@163.com', '$2a$10$tBBAyjPsk4tc6a4s2yQDCOOjFJA000b/t138bOd2SItWYvXPsJAJe', '1.3163E+11', 'dsj', '124_ymj', '男', NULL, '2020-08-12 00:53:33', b'0', b'0', b'0', b'0', 31.2855190, 121.5055270, '电视机');
+INSERT INTO `sys_user` VALUES (45, 'nxczx1997@163.com', '$2a$10$xKMxfRsV9sxolUnZLiWeJuh.c1s8wv6zBHF.yqu3cCM1N6rXP/Hny', '1.3163E+11', 'gdxk', '125_aha', '男', NULL, '2020-08-12 01:00:12', b'0', b'0', b'0', b'0', 31.2853910, 121.5039290, '古代相框');
+INSERT INTO `sys_user` VALUES (51, 'nxczx1997@163.com', '$2a$10$wwnbsx2NzMQG2xhDE7dT2.1Ah.7RGF4oK5LzlueYu9gBbYx1UGnvu', '1.3163E+11', 'kykt', '126_hjh', '女', NULL, '2020-08-12 01:05:29', b'0', b'0', b'0', b'0', 31.2847770, 121.5060320, '考研考托');
+INSERT INTO `sys_user` VALUES (56, 'nxczx1997@163.com', '$2a$10$YBbGNTfKbKe1hOUVJuPd/OCUPBicHw91ttxsPuqPUBwzEa9IjLbmu', '1.3163E+11', 'gkbb', '127_hzt', '女', NULL, '2020-08-12 01:07:46', b'0', b'0', b'0', b'0', 31.2840800, 121.5067720, '高考必备');
+INSERT INTO `sys_user` VALUES (61, 'nxczx1997@163.com', '$2a$10$SexXgwJQ6yYnpvz6ALF.auV2pP9ZljY4xuqHtG/KvcBj.9C88m7GS', '1.3163E+11', 'mnxt', '128_wyf', '女', NULL, '2020-08-12 01:09:52', b'0', b'0', b'0', b'0', 31.2832730, 121.5057960, '美女小摊');
+INSERT INTO `sys_user` VALUES (66, 'nxczx1997@163.com', '$2a$10$2Zknldb9vbCyOT/402PaDeB3tH3CDSuERzM0X.73O0ptdg2TY2ooG', '1.3163E+11', 'gdmmdd', '129_yxqx', '女', NULL, '2020-08-12 01:12:17', b'0', b'0', b'0', b'0', 31.2819620, 121.5051310, '挂得满满当当');
+INSERT INTO `sys_user` VALUES (71, 'nxczx1997@163.com', '$2a$10$BrmHodJF0hVVLyDPkhL3nO6qDrB5LO9sft5l5c/sf45aonOSZG..C', '1.3163E+11', 'zbhxs', '130_czx', '男', NULL, '2020-08-12 01:15:20', b'0', b'0', b'0', b'0', 31.2804670, 121.5047550, '珠宝黑心商');
+INSERT INTO `sys_user` VALUES (76, 'nxczx1997@163.com', '$2a$10$CmRiR.fDNZeAFhc.tsDXbu/6Kwgz.rf8fiUqc1sXcvZb/og7kIepq', '1.3163E+11', 'ywxbj', '131_lm', '男', NULL, '2020-08-12 01:18:05', b'0', b'0', b'0', b'0', 31.2793300, 121.5006570, '义务小摆件');
+INSERT INTO `sys_user` VALUES (81, 'nxczx1997@163.com', '$2a$10$g0m71CNAkDn2JbSic2grt.z2.qEVCvLktnQqS57j0.btbkTBY7ukq', '1.3163E+11', 'gldq', '132_tx', '男', NULL, '2020-08-12 01:21:11', b'0', b'0', b'0', b'0', 31.2834560, 121.4989510, '各类电器');
 /*!40000 ALTER TABLE `sys_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -364,7 +364,7 @@ CREATE TABLE `sys_user_role` (
 
 LOCK TABLES `sys_user_role` WRITE;
 /*!40000 ALTER TABLE `sys_user_role` DISABLE KEYS */;
-/*wait to update*/
+INSERT INTO `sys_user_role` VALUES (1,1),(2,1),(23,1),(31,30),(39,1), (32,2),(37,2),(45,2),(51,2),(56,2),(61,2),(66,2),(71,2),(76,2),(81,2);
 /*!40000 ALTER TABLE `sys_user_role` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

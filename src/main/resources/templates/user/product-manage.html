@@ -168,13 +168,13 @@
                             <th scope="col" class="resizeable">类型</th>
                             <th scope="col" class="resizeable">简介</th>
                             <th scope="col" class="resizeable">发布日期</th>
-                            <th scope="col" width="1">sss</th>
+                            <th scope="col" width="1">修改</th>
                         </tr>
                         </thead>
                         <tbody th:each="product : ${page}">
                         <tr>
 
-                            <td class="align-middle" ><img th:src="@{/{imgs}(imgs=${product.imgs.get(0)})}" width="100"></td>
+                            <td class="align-middle" ><img th:src="@{/}+${product.imgs.get(0)}" width="100"></td>
                             <td class="align-middle"  th:text="${product.title}"></td>
                             <td class="align-middle" th:text="${product.price}"></td>
                             <td class="align-middle" th:text="${product.type}"></td>
