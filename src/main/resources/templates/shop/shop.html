@@ -216,6 +216,10 @@
                                     center: new qq.maps.LatLng(user.lat,user.lon),
                                     zoom: 15
                                 });
+                                var maker = new qq.maps.Marker({
+                                    position: new qq.maps.LatLng(user.lat,user.lon),
+                                    map: map
+                                });
                             </script>
                         </div>
                     </div>
