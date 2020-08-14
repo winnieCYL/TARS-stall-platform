@@ -16,6 +16,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<skipTests>true</skipTests>
 	</properties>
 
 	<dependencies>
@@ -60,8 +61,16 @@
 			<version>1.2.28</version>
 		</dependency>
 
+		<!--TARS插件-->
+		<dependency>
+			<groupId>com.tencent.tars</groupId>
+			<artifactId>tars-spring-boot-starter</artifactId>
+			<version>1.7.2</version>
+		</dependency>
 
 	</dependencies>
+
+
 
 	<build>
 		<plugins>
@@ -69,8 +78,49 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<version>2.2.6.RELEASE</version>
+				<configuration>
+					<mainClass>com.secondHandbbs.SecondHandbbsApplication</mainClass>
+					<finalName>TARSstall</finalName>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
+
+			<!--tars2java插件-->
+			<plugin>
+				<groupId>com.tencent.tars</groupId>
+				<artifactId>tars-maven-plugin</artifactId>
+				<version>1.7.2</version>
+				<configuration>
+					<tars2JavaConfig>
+						<!-- tars文件位置 -->
+						<tarsFiles>
+							<tarsFile>${basedir}/src/main/resources/hello.tars</tarsFile>
+						</tarsFiles>
+						<!-- 源文件编码 -->
+						<tarsFileCharset>UTF-8</tarsFileCharset>
+						<!-- 生成服务端代码 -->
+						<servant>false</servant>
+						<!-- 生成源代码编码 -->
+						<charset>UTF-8</charset>
+						<!-- 生成的源代码目录 -->
+						<srcPath>${basedir}/src/main/java</srcPath>
+						<!-- 生成源代码包前缀 -->
+						<packagePrefixName>com.tencent.tars.client.</packagePrefixName>
+					</tars2JavaConfig>
+				</configuration>
+			</plugin>
+
 		</plugins>
+
+
 	</build>
+
+
 
 </project>
