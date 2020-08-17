@@ -43,15 +43,15 @@ Create by: 朴实无华YCC
 
 新用户可以点击注册进行信息录入：
 
-![search](https://github.com/winnieCYL/TARS-stall-platform/blob/master/photo/注册.jpg)
+![search](https://github.com/winnieCYL/TARS-stall-platform/blob/master/photo/注册.png)
 
 然后进行登陆：
 
-![search](https://github.com/winnieCYL/TARS-stall-platform/blob/master/photo/登陆界面.PNG)
+![search](https://github.com/winnieCYL/TARS-stall-platform/blob/master/photo/登陆界面.jpg)
 
 登陆后即可使用所有功能：
 
-![search](https://github.com/winnieCYL/TARS-stall-platform/blob/master/photo/登陆后界面.PNG)
+![search](https://github.com/winnieCYL/TARS-stall-platform/blob/master/photo/登陆后界面.jpg)
 
 ### 搜索功能
 
@@ -69,9 +69,9 @@ Create by: 朴实无华YCC
 
 点击右上角”发布商品“，可以发布新的地摊商品：
 
-![search](https://github.com/winnieCYL/TARS-stall-platform/blob/master/photo/商品发布.PNG)
+![search](https://github.com/winnieCYL/TARS-stall-platform/blob/master/photo/商品发布.png)
 
 然后点击左上角用户名，点击”我的商品“，可进入商品管理界面：
 
-![search](https://github.com/winnieCYL/TARS-stall-platform/blob/master/photo/商品管理.PNG)
+![search](https://github.com/winnieCYL/TARS-stall-platform/blob/master/photo/商品管理.png)
 
