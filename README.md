@@ -75,3 +75,22 @@ Create by: 朴实无华YCC
 
 ![search](https://github.com/winnieCYL/TARS-stall-platform/blob/master/photo/商品管理.png)
 
+### 浏览商品及评论
+
+用户可以自由浏览地摊商品：
+
+![search](https://github.com/winnieCYL/TARS-stall-platform/blob/master/photo/浏览商品.png)
+
+需要心仪的可以索取地摊摊主的联系方式：
+
+![search](https://github.com/winnieCYL/TARS-stall-platform/blob/master/photo/联系方式.png)
+
+还可以评论这个商品：
+
+![search](https://github.com/winnieCYL/TARS-stall-platform/blob/master/photo/评论.PNG)
+
+### 浏览地摊页面
+
+如果对一个摊的商品感兴趣，可以浏览这个地摊：
+
+![search](https://github.com/winnieCYL/TARS-stall-platform/blob/master/photo/地摊页面.png)
